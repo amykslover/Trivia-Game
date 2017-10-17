@@ -1,0 +1,98 @@
+body {
+	background-image: url(../images/congruent_outline.png);
+	font-family: 'Open Sans', sans-serif !important;
+	font-size: 20px;
+}
+	
+h1 {
+	text-align: center;
+}
+
+h3 {
+	font-size: 18px !important;
+	margin-top: 10px !important;
+	color: white !important;
+	padding-left: 20px;
+}
+
+
+span {
+	position: absolute;
+	top: 0;
+	height: 40px;
+	width: 100%;
+	background-color: #545455;
+	border-bottom: solid grey 1px;
+
+}
+
+p {
+	position: absolute;
+	bottom: 0;
+	color: black;
+	padding-bottom: 2px;
+	padding-left: 20px;
+	font-size: 14px;
+}
+
+/*progress {
+	height: 50px;
+	width: 100%;
+}*/
+
+#myProgress {
+	width: 100%;
+	background-color: #ddd;
+}
+
+#myBar {
+	position: absolute;
+	margin-top: 30px; 
+	width: 1%;
+  	height: 30px;
+  	background-color: #4CAF50;
+}
+.outline {
+	border: solid grey 1px;
+}
+
+.main {
+	background-color: #EEEDF1;
+	align-items: center;
+	padding: 30px;
+}
+
+.timer {
+	background-color: #EEEDF1;
+	height: 50px;
+	border-bottom: solid grey 1px;
+	position: relative;
+
+}
+.background {
+	background-color: #C9C5C9 !important;
+}
+
+.question {
+	width: 80%;
+	height: 90px;
+	background-color: lightgrey;
+	margin: 10px auto;
+	position: relative;
+
+}
+.answer {
+	width: 80%;
+	height: 90px;
+	background-color: lightgrey;
+	margin: 30px auto 30px auto;
+	position: relative;
+}
+
+.timer {
+	width: 80%;
+	height: 90px;
+	background-color: lightgrey;
+	margin: 30px auto 30px auto;
+	position: relative;
+}
