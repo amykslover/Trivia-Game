@@ -4,7 +4,6 @@
 	<title>Trivia Game</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script src="assets/js/game.js"></script>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
@@ -14,69 +13,76 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
 </head>
 
 
 <body>
  <div class="row">
-	<div class="jumbotron center background">
-		<h1>Trivia Game</h1>		
-	</div>
+  <div class="jumbotron background">
+    <h1>Trivia Game</h1>    
+  </div>
 </div>
 <div class="row">
   <div class="col-md-2"></div>
+  
+  <div class="col-md-8 center">
+      <button class="start" id="startbutton">Start</button>
+  <div> 
+      
+  <div class="timer"></div>
 
+  </div>
+
+</div>
+  <div class="col-md-2"></div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-2"></div>
   <div class="col-md-8">
-  	<div> 
-	  	<div class="timer" id="myProgress">
-	  		<div id="myBar"></div>
-		</div>
-  		<!-- <progress value="0" max="30" id="progressBar"></progress> -->
+    <div class="main">
+      
+      <div class="question outline">
+        <span>
+        <h3>Question</h3>
+        </span>
+        <p id="question">This is a question.</p>
+      </div>
+      
+      <div class="answer outline">
+      <span>
+        <h3>Answer 1</h3>
+        </span>
+        <p class="guess" id="answer1" data-answer="0">This is an answer.</p>
+      </div>
+      
+      <div class="answer outline">
+      <span>
+        <h3>Answer 2</h3>
+        </span>
+        <p class="guess" id="answer2" data-answer="1">This is an answer.</p>
+      </div>
 
-  	</div>
-  	<div class="main">
-  		
-  		<div class="question outline">
-  			<span>
-  			<h3>Question</h3>
-  			</span>
-  			<p id="question">This is a question.</p>
-  		</div>
-  		
-  		<div class="answer outline">
- 			<span>
-  			<h3>Answer 1</h3>
-  			</span>
-  			<p id="answer1">This is an answer.</p>
-  		</div>
-  		
-  		<div class="answer outline">
- 			<span>
-  			<h3>Answer 2</h3>
-  			</span>
-  			<p id="answer2">This is an answer.</p>
-  		</div>
+      <div class="answer outline">
+      <span>
+        <h3>Answer 3</h3>
+        </span>
+        <p class="guess" id="answer3" data-answer="2">This is an answer.</p>
+      </div>
 
-  		<div class="answer outline">
- 			<span>
-  			<h3>Answer 3</h3>
-  			</span>
-  			<p id="answer3">This is an answer.</p>
-  		</div>
-
-  		<div class="answer outline">
- 			<span>
-  			<h3>Answer 4</h3>
-  			</span>
-  			<p id="answer4">This is an answer.</p>
-  		</div>
-
+        <div class="answer outline">
+        <span>
+          <h3>Answer 4</h3>
+          </span>
+          <p class="guess" id="answer4" data-answer="3">This is an answer.</p>
+        </div>
 
   </div>
   <div class="col-md-2"></div>
 </div>
 
+  <script src="assets/js/game.js"></script>
 
 </body>
 </html>
