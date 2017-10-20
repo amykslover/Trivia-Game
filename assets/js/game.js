@@ -121,9 +121,9 @@ $(function(){
 //If the user's guess is not equal to the correctAnswer value, the incement the incorrect answer counter
 //Go on to the next unanswered question
 //Repeat until there are no more unanswered questions (end of the quiz array)
+//Show a summary page to display the user stats
 
 //----------------Timer---------------------------------------------------------------------------
-var intervalId;
 var clockRunning = false;
 
 var timer = {
@@ -132,17 +132,19 @@ var timer = {
 
     countdownStart: function() {
         if (!clockRunning) {
-            intervalId = setInterval(timer.decreaseTime, 1000);
+            timer.intervalId = setInterval(timer.decreaseTime, 1000);
             clockRunning = true;
             }
+        console.log("Hello!")
     },
     decreaseTime: function() {
         if(timer.displayTime == 0) {
-            timerUp(intervalId);
+            timerUp(timer.intervalId);
         } else {
         timer.displayTime = timer.allottedTime--;
         $("#time").text(timer.displayTime);
         }
+        console.log(timer.displayTime);
     }
 
 };
@@ -172,11 +174,16 @@ function runGame(){
 };
 
 function timerUp(id) {
-    count = count + 1
+    increaseCounter();;
     guessedWrong = guessedWrong + 1
     alert("Sorry, out of time!")
     clearInterval(id);
+    displayQuestion();
     };
+
+function increaseCounter() {
+    count = count + 1;
+};
 
 
 function displayQuestion(){
@@ -187,6 +194,8 @@ function displayQuestion(){
     if(count == quizLength){
         $('.question').remove();
         $('.answer').remove();
+        gameOn = false;
+        displaySummary();
     } 
     else{
         $('#question').html(quiz[count].question);
@@ -194,10 +203,14 @@ function displayQuestion(){
         $('#answer2').html(quiz[count].answers.answer2);
         $('#answer3').html(quiz[count].answers.answer3);
         $('#answer4').html(quiz[count].answers.answer4);
+        timer.allottedTime = 10;
+        timer.displayTime = timer.allottedTime;
+        clockRunning = false;
+        timer.countdownStart();
     }
 
+
 };
-    
     
 
     $('.guess').on('click',function(){
@@ -207,7 +220,7 @@ function displayQuestion(){
        console.log(timer.displayTime);
 
        if(userGuess == correctAnswer) {
-            count = count + 1
+            increaseCounter();
             guessedRight = guessedRight + 1
             console.log("UserGuess:" + userGuess);
             console.log("CorrectGuess:" + correctAnswer); 
@@ -217,7 +230,7 @@ function displayQuestion(){
             displayQuestion();
 
        } else if(userGuess !=  correctAnswer) {
-            count = count + 1
+            increaseCounter();
             guessedWrong = guessedWrong + 1
             console.log("UserGuess:" + userGuess);
             console.log("CorrectGuess:" + correctAnswer); 
@@ -228,15 +241,27 @@ function displayQuestion(){
             displayQuestion();
        } 
 
-
     });
 
+function displaySummary() {
+
+    var summaryDiv = $('<div>');
+    summaryDiv.addClass('summary');
+
+    var incorrect = $('<div>').text("Incorrect: " + guessedWrong);
+    var correct = $('<div>').text("Correct: " + guessedRight);
+    var percentCorrect = $('<div>').text("Guessed Correctly: " + guessedRight/count);          
 
 
+    // var image = $("<img>");
+    // image.attr("src",//set this equal to an image to display);
 
-
-    // else {$("#question, #answer1, #answer2, #answer3, #answer4").empty();
-    // }
+    summaryDiv.append(incorrect);
+    summaryDiv.append(correct);
+    summaryDiv.append(percentCorrect);
+    // summaryDiv.append(image);
+    $('.main').append(summaryDiv);  
+};
 
 
 });
